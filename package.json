@@ -9,7 +9,6 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@pixi/sound": "^5.1.1",
         "pixi.js": "^7.2.4",
         "vite": "^4.2.0",
         "vue": "^3.2.47",

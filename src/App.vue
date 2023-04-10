@@ -6,5 +6,5 @@ import GameplayComponent from './components/Gameplay.vue'
 
 <template>
     <!-- <Panel /> -->
-    <GameplayComponent/>
+    <GameplayComponent />
 </template>
