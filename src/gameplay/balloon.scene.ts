@@ -1,7 +1,8 @@
-import { Assets, Container, ICanvas, Sprite, Spritesheet, Texture } from "pixi.js";
 import { BALLOON_SCREEN_COUNT, BALLOON_TINT_COLORS, BALLOON_BURST_ALLOWED, BASE_URL, PRELOADER_PROGRESS, WINNER_PRIZE, BURST_LEFT, SHOW_RESULTS } from "../settings";
+import { Assets, Container, ICanvas, Sprite, Spritesheet, Texture } from "pixi.js";
 import { isMobile, isRetina, randBetween } from "./functions";
 import { Balloon } from './balloon'
+import { sound } from '@pixi/sound'
 
 export interface IScene extends Container {
     preload(): Promise<void>
@@ -25,10 +26,15 @@ export class BalloonsScene extends Container implements IScene {
 
         Assets.add('balloon', `${BASE_URL}/baloon${suffix}.json`)
         Assets.add('backdrop', `${BASE_URL}/backdrop.jpg`)
+        sound.add('balloon1', `${BASE_URL}/balloon1.mp3`)
+        sound.add('balloon2', `${BASE_URL}/balloon2.mp3`)
+        sound.add('congrat', `${BASE_URL}/congrat.mp3`)
 
         this.assets = await Assets.load(['balloon', 'backdrop'], progress => {
             PRELOADER_PROGRESS.value = progress * 100
         }) as typeof this.assets
+
+        await Assets.loadBundle('sounds')
     }
 
     async show(view: ICanvas): Promise<void> {
@@ -74,6 +80,7 @@ export class BalloonsScene extends Container implements IScene {
         if (BURST_LEFT.value <= 0) {
             this.started = false
             this.balloons.map(b => b.burst = true)
+            sound.play('congrat')
             SHOW_RESULTS.value = true
         }
 

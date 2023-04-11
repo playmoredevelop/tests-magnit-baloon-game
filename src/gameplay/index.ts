@@ -1,5 +1,4 @@
 import { Application, Container } from 'pixi.js'
-// import { sound } from '@pixi/sound'
 import { PRELOADER_VISIBLE, VIEWPORT_ID } from '../settings'
 import { IScene } from './balloon.scene'
 

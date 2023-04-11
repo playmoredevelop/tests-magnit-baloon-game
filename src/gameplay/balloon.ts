@@ -1,6 +1,9 @@
 import { AnimatedSprite, Texture } from 'pixi.js'
 import { BALLOON_SCALE_MAX, BALLOON_SCALE_MIN, BALLOON_SPEED_MAX, BALLOON_SPEED_MIN, BALLOON_TINT_COLORS, PRIZE } from '../settings'
 import { randBetween } from './functions'
+import { sound } from '@pixi/sound'
+
+console.log(sound)
 
 export class Balloon extends AnimatedSprite {
 
@@ -17,7 +20,10 @@ export class Balloon extends AnimatedSprite {
         this.animationSpeed = 1.7
         this.loop = false
 
-        this.onclick = () => this.burst = true
+        this.onclick = () => {
+            this.burst = true
+            sound.play(`balloon${Math.round(randBetween(1,2))}`)
+        }
     }
 
     get burst(): boolean {
