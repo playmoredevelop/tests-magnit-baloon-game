@@ -26,9 +26,9 @@ export class BalloonsScene extends Container implements IScene {
 
         Assets.add('balloon', `${BASE_URL}/baloon${suffix}.json`)
         Assets.add('backdrop', `${BASE_URL}/backdrop.jpg`)
-        sound.add('balloon1', `${BASE_URL}/balloon1.mp3`)
-        sound.add('balloon2', `${BASE_URL}/balloon2.mp3`)
-        sound.add('congrat', `${BASE_URL}/congrat.mp3`)
+        sound.add('balloon1', {url: `${BASE_URL}/balloon1.mp3`, preload: true})
+        sound.add('balloon2', {url: `${BASE_URL}/balloon2.mp3`, preload: true})
+        sound.add('congrat', {url: `${BASE_URL}/congrat.mp3`, preload: true})
 
         this.assets = await Assets.load(['balloon', 'backdrop'], progress => {
             PRELOADER_PROGRESS.value = progress * 100
@@ -40,6 +40,7 @@ export class BalloonsScene extends Container implements IScene {
     async show(viewport: HTMLElement): Promise<void> {
 
         BURST_LEFT.value = BALLOON_BURST_ALLOWED
+        SHOW_RESULTS.value = false
 
         const { offsetWidth, offsetHeight } = viewport
 
@@ -55,7 +56,6 @@ export class BalloonsScene extends Container implements IScene {
             balloon.reset(offsetWidth, randBetween(offsetHeight, offsetHeight * 1.5), this.winner)
             balloon.onComplete = () => {
                 balloon.visible = false
-                balloon.variant === this.winner && this.payment(balloon)
                 balloon.reset(offsetWidth, offsetHeight, this.winner)
                 BURST_LEFT.value --
             }
@@ -63,7 +63,6 @@ export class BalloonsScene extends Container implements IScene {
             return balloon
         })
         
-        console.log(this.winner, this.balloons)
         this.started = true
 
     }
@@ -71,8 +70,6 @@ export class BalloonsScene extends Container implements IScene {
     public draw(dt: number, viewport: HTMLElement): void {
 
         if (!this.started) return
-
-
 
         for (const balloon of this.balloons) {
             balloon.move(dt)
@@ -95,11 +92,6 @@ export class BalloonsScene extends Container implements IScene {
 
         this.backdrop.width = viewport.offsetWidth
         this.backdrop.height = viewport.offsetHeight
-    }
-
-    protected payment(balloon: Balloon): void {
-        WINNER_PRIZE.value += balloon.prize
-        console.info('payment:', balloon.prize, 'total:', WINNER_PRIZE.value)
     }
 
 }
