@@ -7,7 +7,7 @@ export const SHOW_RESULTS = ref(false)
 export const BURST_LEFT = ref(0)
 
 export const VIEWPORT_ID = 'gameplay'
-export const BASE_URL = '/src/assets'
+export const BASE_URL = ''
 export const BALLOON_SCREEN_COUNT = 10
 export const BALLOON_BURST_ALLOWED = 10
 export const BALLOON_SPEED_MIN = 100 / 60
