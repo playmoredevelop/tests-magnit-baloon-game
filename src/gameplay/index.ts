@@ -1,6 +1,11 @@
-import { Application, Container } from 'pixi.js'
+import { Application, Container, ICanvas, IRenderer } from 'pixi.js'
 import { PRELOADER_VISIBLE, VIEWPORT_ID } from '../settings'
 import { IScene } from './balloon.scene'
+
+declare const window: Window & {
+    __PIXI_STAGE__: Container<IScene>
+    __PIXI_RENDERER__: IRenderer<ICanvas>
+}
 
 export default class Gameplay extends Application {
 
@@ -19,6 +24,9 @@ export default class Gameplay extends Application {
             resizeTo: document.getElementById(VIEWPORT_ID),
             resolution: window.devicePixelRatio || 1
         })
+
+        window.__PIXI_STAGE__ = this.stage
+        window.__PIXI_RENDERER__ = this.renderer
     }
 
     public adaptive(): void {
@@ -27,7 +35,8 @@ export default class Gameplay extends Application {
 
         setTimeout(() => {
             this.renderer.resize(this.resizeTo.offsetWidth, this.resizeTo.offsetHeight)
-            this.stage.children.map(scene => scene.adaptive(this.view))
+            this.stage.children.map(scene => scene.adaptive(this.resizeTo))
+            console.log('adaptive', this.resizeTo.offsetWidth, this.resizeTo.offsetHeight)
         }, 30)
     }
 
@@ -39,7 +48,7 @@ export default class Gameplay extends Application {
 
         await scene.preload()
         this.stage.addChild(scene)
-        this.ticker.add(dt => scene.draw(dt, this.view))
+        this.ticker.add(dt => scene.draw(dt, this.resizeTo))
 
         this.view.style && (this.view.style.touchAction = 'auto')
         this.resizeTo.append(this.view as unknown as Node)
@@ -49,6 +58,6 @@ export default class Gameplay extends Application {
 
         PRELOADER_VISIBLE.value = false
 
-        await scene.show(this.view)
+        await scene.show(this.resizeTo)
     }
 }

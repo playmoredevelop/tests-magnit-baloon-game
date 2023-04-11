@@ -20,10 +20,10 @@ export class Balloon extends AnimatedSprite {
         this.animationSpeed = 1.7
         this.loop = false
 
-        this.onclick = () => {
+        this.on('pointertap', () => {
             this.burst = true
             sound.play(`balloon${Math.round(randBetween(1,2))}`)
-        }
+        })
     }
 
     get burst(): boolean {

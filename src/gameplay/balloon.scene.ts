@@ -6,9 +6,9 @@ import { sound } from '@pixi/sound'
 
 export interface IScene extends Container {
     preload(): Promise<void>
-    adaptive(view: ICanvas): void
-    show(view: ICanvas): Promise<void>
-    draw(dt: number, view: ICanvas): void
+    adaptive(viewport: HTMLElement): void
+    show(viewport: HTMLElement): Promise<void>
+    draw(dt: number, viewport: HTMLElement): void
 }
 
 export class BalloonsScene extends Container implements IScene {
@@ -37,24 +37,26 @@ export class BalloonsScene extends Container implements IScene {
         await Assets.loadBundle('sounds')
     }
 
-    async show(view: ICanvas): Promise<void> {
+    async show(viewport: HTMLElement): Promise<void> {
 
         BURST_LEFT.value = BALLOON_BURST_ALLOWED
 
+        const { offsetWidth, offsetHeight } = viewport
+
         this.backdrop = new Sprite(await Assets.load('backdrop'))
-        this.backdrop.width = view.width
-        this.backdrop.height = view.height
+        this.backdrop.width = offsetWidth
+        this.backdrop.height = offsetHeight
         this.addChild(this.backdrop)
 
         this.winner = Math.floor(Math.random() * BALLOON_TINT_COLORS.length)
         
         this.balloons = Array(BALLOON_SCREEN_COUNT).fill(0).map(b => {
             const balloon = new Balloon(this.assets.balloon.animations['explo'])
-            balloon.reset(view.width, randBetween(view.height, view.height * 1.5), this.winner)
+            balloon.reset(offsetWidth, randBetween(offsetHeight, offsetHeight * 1.5), this.winner)
             balloon.onComplete = () => {
                 balloon.visible = false
                 balloon.variant === this.winner && this.payment(balloon)
-                balloon.reset(view.width, view.height, this.winner)
+                balloon.reset(offsetWidth, offsetHeight, this.winner)
                 BURST_LEFT.value --
             }
             this.addChild(balloon)
@@ -66,14 +68,16 @@ export class BalloonsScene extends Container implements IScene {
 
     }
 
-    public draw(dt: number, view: ICanvas): void {
+    public draw(dt: number, viewport: HTMLElement): void {
 
         if (!this.started) return
+
+
 
         for (const balloon of this.balloons) {
             balloon.move(dt)
             if (balloon.position.y <= -balloon.height) {
-                balloon.reset(view.width, view.height, this.winner)
+                balloon.reset(viewport.offsetWidth, viewport.offsetHeight, this.winner)
             } 
         }
 
@@ -87,7 +91,11 @@ export class BalloonsScene extends Container implements IScene {
     }
 
 
-    public adaptive(view: ICanvas): void {}
+    public adaptive(viewport: HTMLElement): void {
+
+        this.backdrop.width = viewport.offsetWidth
+        this.backdrop.height = viewport.offsetHeight
+    }
 
     protected payment(balloon: Balloon): void {
         WINNER_PRIZE.value += balloon.prize
