@@ -1,255 +1,269 @@
 {
-  "frames": {
-    "baloon-01.png": {
-      "frame": {
-        "x": 0.5,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
+    "animations": {
+        "explo": [
+            "baloon-01.png",
+            "baloon-02.png",
+            "baloon-03.png",
+            "baloon-04.png",
+            "baloon-05.png",
+            "baloon-06.png",
+            "baloon-07.png",
+            "baloon-08.png",
+            "baloon-09.png",
+            "baloon-10.png"
+        ]
     },
-    "baloon-02.png": {
-      "frame": {
-        "x": 49.25,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
+    "frames": {
+        "baloon-01.png": {
+            "frame": {
+                "x": 0.5,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-02.png": {
+            "frame": {
+                "x": 49.25,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-03.png": {
+            "frame": {
+                "x": 98,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-04.png": {
+            "frame": {
+                "x": 146.75,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-05.png": {
+            "frame": {
+                "x": 195.5,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-06.png": {
+            "frame": {
+                "x": 244.25,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-07.png": {
+            "frame": {
+                "x": 293,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-08.png": {
+            "frame": {
+                "x": 341.75,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-09.png": {
+            "frame": {
+                "x": 390.5,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "baloon-10.png": {
+            "frame": {
+                "x": 439.25,
+                "y": 0.5,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 47.75,
+                "h": 66.5
+            },
+            "sourceSize": {
+                "w": 47.75,
+                "h": 66.5
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
     },
-    "baloon-03.png": {
-      "frame": {
-        "x": 98,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-04.png": {
-      "frame": {
-        "x": 146.75,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-05.png": {
-      "frame": {
-        "x": 195.5,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-06.png": {
-      "frame": {
-        "x": 244.25,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-07.png": {
-      "frame": {
-        "x": 293,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-08.png": {
-      "frame": {
-        "x": 341.75,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-09.png": {
-      "frame": {
-        "x": 390.5,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "baloon-10.png": {
-      "frame": {
-        "x": 439.25,
-        "y": 0.5,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 47.75,
-        "h": 66.5
-      },
-      "sourceSize": {
-        "w": 47.75,
-        "h": 66.5
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
+    "meta": {
+        "app": "http://free-tex-packer.com",
+        "version": "0.6.7",
+        "image": "baloon@0.5x.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 488,
+            "h": 68
+        },
+        "scale": 0.25
     }
-  },
-  "meta": {
-    "app": "http://free-tex-packer.com",
-    "version": "0.6.7",
-    "image": "baloon@0.5x.png",
-    "format": "RGBA8888",
-    "size": {
-      "w": 488,
-      "h": 68
-    },
-    "scale": 0.25
-  }
 }

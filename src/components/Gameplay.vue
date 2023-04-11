@@ -2,27 +2,13 @@
 
 import { onMounted } from 'vue';
 import { BalloonsScene } from '../gameplay/balloon.scene';
-import { PRELOADER_PROGRESS, PRELOADER_VISIBLE } from '../datamapper'
+import { PRELOADER_PROGRESS, PRELOADER_VISIBLE } from '../settings'
 import RadialProgressBar from "vue3-radial-progress"
 import Gameplay from '../gameplay'
 
-// pixi app
-// loader
-// resize
-// init gameplay ticker
-// random setup gameplay
-// run gameplay
-
-let game: Gameplay = undefined
-
 onMounted(async () => {
-
-    (typeof game !== 'undefined') && game.destroy()
-
-    game = new Gameplay({
-        id: 'gameplay'
-    })
-
+    
+    const game = new Gameplay();
     game.run(new BalloonsScene)
     
 })

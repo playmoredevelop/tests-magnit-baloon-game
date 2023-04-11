@@ -1,7 +1,7 @@
 import { Application, Container } from 'pixi.js'
 // import { sound } from '@pixi/sound'
-import { PRELOADER_VISIBLE } from '../datamapper'
-import { GameplaySettings, IScene } from './declare'
+import { PRELOADER_VISIBLE, VIEWPORT_ID } from '../settings'
+import { IScene } from './balloon.scene'
 
 export default class Gameplay extends Application {
 
@@ -10,27 +10,16 @@ export default class Gameplay extends Application {
 
     protected resizeTimeout: number = 0
 
-    readonly defaults: GameplaySettings = {
-        id: 'gameplay',
-        count: 10,
-        speed: 100,
-        baseurl: '/src/assets'
-    }
-
-    constructor(settings: Partial<GameplaySettings> = {}){
+    constructor(){
 
         super({
             antialias: false,
             autoStart: false,
             hello: false,
             sharedTicker: false,
-            // resolution: window.devicePixelRatio || 1
+            resizeTo: document.getElementById(VIEWPORT_ID),
+            resolution: window.devicePixelRatio || 1
         })
-
-        Object.assign(this.defaults, settings)
-
-        this.resizeTo = document.getElementById(this.defaults.id)
-
     }
 
     public adaptive(): void {
@@ -38,9 +27,8 @@ export default class Gameplay extends Application {
         clearTimeout(this.resizeTimeout)
 
         setTimeout(() => {
-            this.renderer.resize(this.resizeTo.clientWidth, this.resizeTo.clientHeight)
-            this.stage.children.map(scene => scene.adaptive(this.resizeTo))
-            console.info('gameplay resize adaptive')
+            this.renderer.resize(this.resizeTo.offsetWidth, this.resizeTo.offsetHeight)
+            this.stage.children.map(scene => scene.adaptive(this.view))
         }, 30)
     }
 
@@ -50,9 +38,9 @@ export default class Gameplay extends Application {
 
         window.onresize = this.adaptive.bind(this)
 
-        await scene.preload(this.defaults)
+        await scene.preload()
         this.stage.addChild(scene)
-        this.ticker.addOnce(scene.draw)
+        this.ticker.add(dt => scene.draw(dt, this.view))
 
         this.view.style && (this.view.style.touchAction = 'auto')
         this.resizeTo.append(this.view as unknown as Node)
@@ -62,6 +50,6 @@ export default class Gameplay extends Application {
 
         PRELOADER_VISIBLE.value = false
 
-        await scene.show(this.defaults)
+        await scene.show(this.view)
     }
 }
